@@ -43,4 +43,18 @@ dependencies {
     //Okhttp3
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+
+    // MVP
+    implementation "tech.schoolhelper:moxy-x:$moxyx_version"
+    implementation "tech.schoolhelper:moxy-x-androidx:$moxyx_version"
+    implementation "tech.schoolhelper:moxy-x-material:$moxyx_version"
+    kapt "tech.schoolhelper:moxy-x-compiler:$moxyx_version"
+
+    // Dagger
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 }
