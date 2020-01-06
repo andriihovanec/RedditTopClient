@@ -1,4 +1,4 @@
-package com.testtask.reddittopclient
+package com.testtask.reddittopclient.models
 
 data class PlaceholderEntries(
     val data: Data,

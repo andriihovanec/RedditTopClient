@@ -1,10 +1,9 @@
 package com.testtask.reddittopclient.service
 
-import com.testtask.reddittopclient.PlaceholderEntries
+import com.testtask.reddittopclient.models.PlaceholderEntries
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PlaceholderApi{
