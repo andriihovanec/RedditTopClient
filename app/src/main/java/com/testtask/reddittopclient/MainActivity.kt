@@ -3,6 +3,7 @@ package com.testtask.reddittopclient
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 
@@ -30,5 +31,12 @@ class MainActivity : AppCompatActivity() {
             .setPopEnterAnim(R.anim.fragment_fade_enter)
             .setPopExitAnim(R.anim.fragment_fade_exit)
             .build()
+    }
+
+    override fun onBackPressed() {
+        when (this.findNavController(R.id.nav_host_fragment).currentDestination!!.label!!.toString()) {
+            "EntriesFragment" -> finish()
+            else -> super.onBackPressed()
+        }
     }
 }

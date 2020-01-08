@@ -43,7 +43,6 @@ class EntriesFragment : MvpAppCompatFragment(), EntriesView, OnItemClickListener
     private lateinit var mScrollListener: ScrollListener
     private lateinit var mLinearLayoutManager: LinearLayoutManager
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
