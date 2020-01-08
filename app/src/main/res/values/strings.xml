@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">RedditTopClient</string>
     <string name="no_entries">No entries</string>
-    <string name="posted_by">Posted by</string>
     <string name="post_thumbnail">Post Thumbnail</string>
+    <string name="error_message">Some issue occurred</string>
+    <string name="limit_reached">Entries limit 50 reached</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="subreddit">Subreddit: %1$s</string>
+    <string name="score">Score: %1$s</string>
+    <string name="author">Author: %1$s</string>
+    <string name="time">%1$sh</string>
+    <string name="comments">Comments: %1$s</string>
 </resources>

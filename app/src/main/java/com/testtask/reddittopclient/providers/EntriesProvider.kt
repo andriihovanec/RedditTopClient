@@ -14,6 +14,13 @@ class EntriesProvider(var presenter: EntriesPresenter) {
     private var backgroundContext: CoroutineContext = Dispatchers.IO
     private var foregroundContext: CoroutineContext = Dispatchers.Main
 
+    private fun unsubscribe() {
+        parentJob.apply {
+            cancelChildren()
+            cancel()
+        }
+    }
+
     fun loadEntries(limit: Int) {
         unsubscribe()
         parentJob = Job()
@@ -26,13 +33,15 @@ class EntriesProvider(var presenter: EntriesPresenter) {
                         val entries = response.body()
                         entries?.let {
                             presenter.entriesLoaded(it)
+                            Log.d(TAG_ENTRIES_RESPONSE, "success" + entries.data.children.size)
                         }
-                        Log.d(TAG_ENTRIES_RESPONSE, "success" + entries!!.data.children.size)
                     } else {
+                        presenter.errorLoadedEntries()
                         Log.d(TAG_ENTRIES_RESPONSE, response.errorBody().toString())
                     }
                 }
             } catch (e: Exception){
+                presenter.errorLoadedEntries()
                 Log.d(TAG_ENTRIES_RESPONSE, e.toString())
             }
         }
@@ -49,24 +58,18 @@ class EntriesProvider(var presenter: EntriesPresenter) {
                     if (response.isSuccessful) {
                         val entries = response.body()
                         entries?.let {
-                            //entries_count.text = entries_count.text.toString() + "+" + it.data.children.size.toString()
+                            presenter.nextEntriesLoaded(entries)
                         }
                         Log.d(TAG_ENTRIES_RESPONSE, "success" + entries!!.data.children.size)
                     } else {
+                        presenter.errorLoadedEntries()
                         Log.d(TAG_ENTRIES_RESPONSE, response.errorBody().toString())
                     }
                 }
             } catch (e: Exception){
+                presenter.errorLoadedEntries()
                 Log.d(TAG_ENTRIES_RESPONSE, e.toString())
             }
-        }
-
-    }
-
-    private fun unsubscribe() {
-        parentJob.apply {
-            cancelChildren()
-            cancel()
         }
     }
 }

@@ -12,4 +12,6 @@ interface EntriesView : MvpView {
     fun showError(textResource: Int)
     fun setUpEmptyList()
     fun setUpEntriesList(entries: List<Children>)
+    fun addNextEntriesList(entries: List<Children>)
+    fun showSnack(textResource: Int)
 }

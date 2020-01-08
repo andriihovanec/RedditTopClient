@@ -1,16 +1,10 @@
 package com.testtask.reddittopclient
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
-import com.testtask.reddittopclient.service.ApiFactory
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.*
-import java.lang.Exception
+
 
 class MainActivity : AppCompatActivity() {
 
