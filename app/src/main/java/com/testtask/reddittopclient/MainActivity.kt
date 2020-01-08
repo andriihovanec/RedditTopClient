@@ -9,14 +9,10 @@ import androidx.navigation.fragment.NavHostFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navHostFragment: NavHostFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navHostFragment.navController.navigate(
+        this.findNavController(R.id.nav_host_fragment).navigate(
             R.id.entriesFragment,
             null,
             getNavOptions()
